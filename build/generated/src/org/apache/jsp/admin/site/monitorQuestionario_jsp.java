@@ -3,6 +3,9 @@ package org.apache.jsp.admin.site;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.List;
+import dao.MonitorDAO;
+import modelo.MoniAval;
 import modelo.Monitor;
 
 public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.HttpJspBase
@@ -37,7 +40,7 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -48,6 +51,9 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -92,108 +98,11 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write("        <!-- Navigation -->\r\n");
       out.write("        <nav class=\"navbar navbar-default navbar-static-top\" role=\"navigation\" style=\"margin-bottom: 0\">\r\n");
       out.write("            <div class=\"navbar-header\">\r\n");
-      out.write("                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\r\n");
-      out.write("                    <span class=\"sr-only\">Toggle navigation</span>\r\n");
-      out.write("                    <span class=\"icon-bar\"></span>\r\n");
-      out.write("                    <span class=\"icon-bar\"></span>\r\n");
-      out.write("                    <span class=\"icon-bar\"></span>\r\n");
-      out.write("                </button>\r\n");
-      out.write("                <a class=\"navbar-brand\" href=\"index.html\">SB Admin v2.0</a>\r\n");
-      out.write("            </div>\r\n");
-      out.write("            <!-- /.navbar-header -->\r\n");
-      out.write("\r\n");
-      out.write("            <ul class=\"nav navbar-top-links navbar-right\">\r\n");
-      out.write("                <li class=\"dropdown\">\r\n");
-      out.write("                    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\r\n");
-      out.write("                        <i class=\"fa fa-envelope fa-fw\"></i>  <i class=\"fa fa-caret-down\"></i>\r\n");
-      out.write("                    </a>\r\n");
-      out.write("                    <ul class=\"dropdown-menu dropdown-messages\">\r\n");
-      out.write("                        \r\n");
-      out.write("                        <li class=\"divider\"></li>\r\n");
-      out.write("                        \r\n");
-      out.write("                        <li class=\"divider\"></li>\r\n");
-      out.write("                        \r\n");
-      out.write("                        <li class=\"divider\"></li>\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                            <a class=\"text-center\" href=\"#\">\r\n");
-      out.write("                                <strong>Read All Messages</strong>\r\n");
-      out.write("                                <i class=\"fa fa-angle-right\"></i>\r\n");
-      out.write("                            </a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                    </ul>\r\n");
-      out.write("                    <!-- /.dropdown-messages -->\r\n");
-      out.write("                </li>\r\n");
-      out.write("                <!-- /.dropdown -->\r\n");
-      out.write("                <li class=\"dropdown\">\r\n");
-      out.write("                    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\r\n");
-      out.write("                        <i class=\"fa fa-tasks fa-fw\"></i>  <i class=\"fa fa-caret-down\"></i>\r\n");
-      out.write("                    </a>\r\n");
-      out.write("                    <ul class=\"dropdown-menu dropdown-tasks\">\r\n");
-      out.write("                     \r\n");
-      out.write("                        <li class=\"divider\"></li>\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                            <a class=\"text-center\" href=\"#\">\r\n");
-      out.write("                                <strong>See All Tasks</strong>\r\n");
-      out.write("                                <i class=\"fa fa-angle-right\"></i>\r\n");
-      out.write("                            </a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                    </ul>\r\n");
-      out.write("                    <!-- /.dropdown-tasks -->\r\n");
-      out.write("                </li>\r\n");
-      out.write("                <!-- /.dropdown -->\r\n");
-      out.write("                <li class=\"dropdown\">\r\n");
-      out.write("                    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\r\n");
-      out.write("                        <i class=\"fa fa-bell fa-fw\"></i>  <i class=\"fa fa-caret-down\"></i>\r\n");
-      out.write("                    </a>\r\n");
-      out.write("                    <ul class=\"dropdown-menu dropdown-alerts\">\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                            <a href=\"#\">\r\n");
-      out.write("                                <div>\r\n");
-      out.write("                                    <i class=\"fa fa-comment fa-fw\"></i> New Comment\r\n");
-      out.write("                                    <span class=\"pull-right text-muted small\">4 minutes ago</span>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                        <li class=\"divider\"></li>\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                            <a href=\"#\">\r\n");
-      out.write("                                <div>\r\n");
-      out.write("                                    <i class=\"fa fa-twitter fa-fw\"></i> 3 New Followers\r\n");
-      out.write("                                    <span class=\"pull-right text-muted small\">12 minutes ago</span>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                        <li class=\"divider\"></li>\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                            \r\n");
-      out.write("                        <li class=\"divider\"></li>\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                            <a class=\"text-center\" href=\"#\">\r\n");
-      out.write("                                <strong>See All Alerts</strong>\r\n");
-      out.write("                                <i class=\"fa fa-angle-right\"></i>\r\n");
-      out.write("                            </a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                    </ul>\r\n");
+      out.write("               \r\n");
       out.write("                    <!-- /.dropdown-alerts -->\r\n");
-      out.write("                </li>\r\n");
+      out.write("                \r\n");
       out.write("                <!-- /.dropdown -->\r\n");
-      out.write("                <li class=\"dropdown\">\r\n");
-      out.write("                    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\r\n");
-      out.write("                        <i class=\"fa fa-user fa-fw\"></i>  <i class=\"fa fa-caret-down\"></i>\r\n");
-      out.write("                    </a>\r\n");
-      out.write("                    <ul class=\"dropdown-menu dropdown-user\">\r\n");
-      out.write("                        <li><a href=\"#\"><i class=\"fa fa-user fa-fw\"></i> User Profile</a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                        <li><a href=\"#\"><i class=\"fa fa-gear fa-fw\"></i> Settings</a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                        <li class=\"divider\"></li>\r\n");
-      out.write("                        <li><a href=\"login.html\"><i class=\"fa fa-sign-out fa-fw\"></i> Logout</a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                    </ul>\r\n");
-      out.write("                    <!-- /.dropdown-user -->\r\n");
-      out.write("                </li>\r\n");
-      out.write("                <!-- /.dropdown -->\r\n");
-      out.write("            </ul>\r\n");
+      out.write("         \r\n");
       out.write("            <!-- /.navbar-top-links -->\r\n");
       out.write("\r\n");
       out.write("            <div class=\"navbar-default sidebar\" role=\"navigation\">\r\n");
@@ -248,13 +157,32 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write("            </div>\r\n");
       out.write("            <!-- /.navbar-static-side -->\r\n");
       out.write("        </nav>");
+      out.write('\r');
+      out.write('\n');
+
+    Monitor monitor;
+    
+   MonitorDAO monit = new MonitorDAO();
+   
+List <Monitor> lista;
+
+
+MoniAval moni = new MoniAval();
+
+
+
+
+
+
+
+
+
+    
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\r\n");
-      out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
@@ -268,14 +196,26 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write("                    <div class=\"form-group\">\r\n");
       out.write("                        <label>Selecione os monitores</label>\r\n");
       out.write("                        <select class=\"form-control\">\r\n");
-      out.write("                            <option>nome chamar</option>\r\n");
-      out.write("                            <option>nome chamar</option>\r\n");
-      out.write("                            <option>nome chamar</option>\r\n");
-      out.write("                            <option>nome chamar</option>\r\n");
-      out.write("                            <option>nome chamar</option>\r\n");
+      out.write("                            <option>");
+      out.print(moni.getMonitor() );
+      out.write("</option>\r\n");
+      out.write("                            <option>");
+      out.print(moni.getMonitor() );
+      out.write("</option>\r\n");
+      out.write("                            <option>");
+      out.print(moni.getMonitor() );
+      out.write("</option>\r\n");
+      out.write("                            <option>");
+      out.print(moni.getMonitor() );
+      out.write("</option>\r\n");
+      out.write("                            <option>");
+      out.print(moni.getMonitor() );
+      out.write("</option>\r\n");
       out.write("                        </select>\r\n");
       out.write("                    </div>\r\n");
-      out.write("            <h4 class=\"enunciado\">111111</h4>\r\n");
+      out.write("            <h4 class=\"enunciado\">");
+      out.print(moni.getQuestionario());
+      out.write("</h4>\r\n");
       out.write("           \r\n");
       out.write("                    <div class=\"form-group\">\r\n");
       out.write("\r\n");
@@ -295,7 +235,9 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write("                            <input type=\"radio\" name=\"rdoPergunta\" id=\"optionsRadiosInline5\" value=\"resposta5\">Excelente\r\n");
       out.write("                        </label>\r\n");
       out.write("                    </div>\r\n");
-      out.write("             <h4 class=\"enunciado\">22222</h4>\r\n");
+      out.write("             <h4 class=\"enunciado\">");
+      out.print(moni.getQuestionario());
+      out.write("</h4>\r\n");
       out.write("           \r\n");
       out.write("                    <div class=\"form-group\">\r\n");
       out.write("\r\n");
@@ -315,7 +257,9 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write("                            <input type=\"radio\" name=\"rdoPergunta2\" id=\"optionsRadiosInline5\" value=\"resposta5\">Excelente\r\n");
       out.write("                        </label>\r\n");
       out.write("                    </div>\r\n");
-      out.write("              <h4 class=\"enunciado\">3333333333</h4>\r\n");
+      out.write("              <h4 class=\"enunciado\">");
+      out.print(moni.getQuestionario());
+      out.write("</h4>\r\n");
       out.write("           \r\n");
       out.write("                    <div class=\"form-group\">\r\n");
       out.write("\r\n");
@@ -335,7 +279,9 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write("                            <input type=\"radio\" name=\"rdoPergunta3\" id=\"optionsRadiosInline5\" value=\"resposta5\">Excelente\r\n");
       out.write("                        </label>\r\n");
       out.write("                    </div>\r\n");
-      out.write("               <h4 class=\"enunciado\">444444444</h4>\r\n");
+      out.write("            <h4 class=\"enunciado\">");
+      out.print(moni.getQuestionario());
+      out.write("</h4>\r\n");
       out.write("           \r\n");
       out.write("                    <div class=\"form-group\">\r\n");
       out.write("\r\n");
@@ -355,7 +301,9 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write("                            <input type=\"radio\" name=\"rdoPergunta4\" id=\"optionsRadiosInline5\" value=\"resposta5\">Excelente\r\n");
       out.write("                        </label>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                <h4 class=\"enunciado\">55555555</h4>\r\n");
+      out.write("               <h4 class=\"enunciado\">");
+      out.print(moni.getQuestionario());
+      out.write("</h4>\r\n");
       out.write("           \r\n");
       out.write("                    <div class=\"form-group\">\r\n");
       out.write("\r\n");
@@ -375,7 +323,9 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write("                            <input type=\"radio\" name=\"rdoPergunta5\" id=\"optionsRadiosInline5\" value=\"resposta5\">Excelente\r\n");
       out.write("                        </label>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                 <h4 class=\"enunciado\">66666666</h4>\r\n");
+      out.write("                <h4 class=\"enunciado\">");
+      out.print(moni.getQuestionario());
+      out.write("</h4>\r\n");
       out.write("           \r\n");
       out.write("                    <div class=\"form-group\">\r\n");
       out.write("\r\n");
@@ -395,7 +345,9 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write("                            <input type=\"radio\" name=\"rdoPergunta6\" id=\"optionsRadiosInline5\" value=\"resposta5\">Excelente\r\n");
       out.write("                        </label>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                  <h4 class=\"enunciado\">77777777</h4>\r\n");
+      out.write("                  <h4 class=\"enunciado\">");
+      out.print(moni.getQuestionario());
+      out.write("</h4>\r\n");
       out.write("           \r\n");
       out.write("                    <div class=\"form-group\">\r\n");
       out.write("\r\n");
@@ -415,7 +367,9 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write("                            <input type=\"radio\" name=\"rdoPergunta7\" id=\"optionsRadiosInline5\" value=\"resposta5\">Excelente\r\n");
       out.write("                        </label>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                   <h4 class=\"enunciado\">88888</h4>\r\n");
+      out.write("                 <h4 class=\"enunciado\">");
+      out.print(moni.getQuestionario());
+      out.write("</h4>\r\n");
       out.write("           \r\n");
       out.write("                    <div class=\"form-group\">\r\n");
       out.write("\r\n");
@@ -435,7 +389,9 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write("                            <input type=\"radio\" name=\"rdoPergunta8\" id=\"optionsRadiosInline5\" value=\"resposta5\">Excelente\r\n");
       out.write("                        </label>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                    <h4 class=\"enunciado\">99999999</h4>\r\n");
+      out.write("                    <h4 class=\"enunciado\">");
+      out.print(moni.getQuestionario());
+      out.write("</h4>\r\n");
       out.write("           \r\n");
       out.write("                    <div class=\"form-group\">\r\n");
       out.write("\r\n");
@@ -455,7 +411,9 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write("                            <input type=\"radio\" name=\"rdoPergunta9\" id=\"optionsRadiosInline5\" value=\"resposta5\">Excelente\r\n");
       out.write("                        </label>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                     <h4 class=\"enunciado\">1000000000</h4>\r\n");
+      out.write("                    <h4 class=\"enunciado\">");
+      out.print(moni.getQuestionario());
+      out.write("</h4>\r\n");
       out.write("           \r\n");
       out.write("                    <div class=\"form-group\">\r\n");
       out.write("\r\n");
