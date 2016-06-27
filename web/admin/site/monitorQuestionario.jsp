@@ -13,6 +13,11 @@
 List <Monitor> lista;
 
 
+MoniAval moni = new MoniAval();
+
+
+
+
 
 
 
@@ -36,14 +41,14 @@ List <Monitor> lista;
                     <div class="form-group">
                         <label>Selecione os monitores</label>
                         <select class="form-control">
-                            <option><%=monit.getMonNome() %></option>
-                            <option><%=monit.getMonNome() %></option>
-                            <option><%=monit.getMonNome() %></option>
-                            <option><%=monit.getMonNome() %></option>
-                            <option><%=monit.getMonNome() %></option>
+                            <option><%=moni.getMonitor() %></option>
+                            <option><%=moni.getMonitor() %></option>
+                            <option><%=moni.getMonitor() %></option>
+                            <option><%=moni.getMonitor() %></option>
+                            <option><%=moni.getMonitor() %></option>
                         </select>
                     </div>
-            <h4 class="enunciado">11111111111</h4>
+            <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
            
                     <div class="form-group">
 
@@ -63,7 +68,7 @@ List <Monitor> lista;
                             <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-             <h4 class="enunciado">22222</h4>
+             <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
            
                     <div class="form-group">
 
@@ -83,7 +88,7 @@ List <Monitor> lista;
                             <input type="radio" name="rdoPergunta2" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-              <h4 class="enunciado">3333333333</h4>
+              <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
            
                     <div class="form-group">
 
@@ -103,7 +108,7 @@ List <Monitor> lista;
                             <input type="radio" name="rdoPergunta3" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-               <h4 class="enunciado">444444444</h4>
+            <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
            
                     <div class="form-group">
 
@@ -123,7 +128,7 @@ List <Monitor> lista;
                             <input type="radio" name="rdoPergunta4" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-                <h4 class="enunciado">55555555</h4>
+               <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
            
                     <div class="form-group">
 
@@ -143,7 +148,7 @@ List <Monitor> lista;
                             <input type="radio" name="rdoPergunta5" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-                 <h4 class="enunciado">66666666</h4>
+                <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
            
                     <div class="form-group">
 
@@ -163,7 +168,7 @@ List <Monitor> lista;
                             <input type="radio" name="rdoPergunta6" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-                  <h4 class="enunciado">77777777</h4>
+                  <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
            
                     <div class="form-group">
 
@@ -183,7 +188,7 @@ List <Monitor> lista;
                             <input type="radio" name="rdoPergunta7" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-                   <h4 class="enunciado">88888</h4>
+                 <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
            
                     <div class="form-group">
 
@@ -203,7 +208,7 @@ List <Monitor> lista;
                             <input type="radio" name="rdoPergunta8" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-                    <h4 class="enunciado">99999999</h4>
+                    <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
            
                     <div class="form-group">
 
@@ -223,7 +228,7 @@ List <Monitor> lista;
                             <input type="radio" name="rdoPergunta9" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-                     <h4 class="enunciado">1000000000</h4>
+                    <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
            
                     <div class="form-group">
 

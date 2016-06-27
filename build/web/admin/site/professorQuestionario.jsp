@@ -1,8 +1,27 @@
 
 
 
+<%@page import="modelo.ProfAval"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.ProfessorDAO"%>
+<%@page import="modelo.Professor"%>
 <%@include file="cabecalho.jsp"%>
+<%
+    Professor professor;
+    Professor profe = new Professor();
+    
+    ProfessorDAO profDAO = new ProfessorDAO();
+    
+    List <Professor> lista;
+    
+    ProfAval prof = new ProfAval();
+    
 
+
+
+
+
+    %>
 
 
 
@@ -21,14 +40,14 @@
                     <div class="form-group">
                         <label>Selecione os professores</label>
                         <select class="form-control">
-                            <option>nome chamar</option>
-                            <option>nome chamar</option>
-                            <option>nome chamar</option>
-                            <option>nome chamar</option>
-                            <option>nome chamar</option>
+                            <option><%=prof.getProfessor() %></option>
+                            <option><%=prof.getProfessor() %></option>
+                            <option><%=prof.getProfessor() %></option>
+                            <option><%=prof.getProfessor() %></option>
+                            <option><%=prof.getProfessor() %></option>
                         </select>
                     </div>
-            <h4 class="enunciado">111111</h4>
+            <h4 class="enunciado"><%=prof.getQuestionario() %></h4>
            
                     <div class="form-group">
 
@@ -48,7 +67,7 @@
                             <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-             <h4 class="enunciado">22222</h4>
+            <h4 class="enunciado"><%=prof.getQuestionario() %></h4>
            
                     <div class="form-group">
 
@@ -68,7 +87,7 @@
                             <input type="radio" name="rdoPergunta2" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-              <h4 class="enunciado">3333333333</h4>
+            <h4 class="enunciado"><%=prof.getQuestionario() %></h4>
            
                     <div class="form-group">
 
@@ -88,7 +107,7 @@
                             <input type="radio" name="rdoPergunta3" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-               <h4 class="enunciado">444444444</h4>
+            <h4 class="enunciado"><%=prof.getQuestionario() %></h4>
            
                     <div class="form-group">
 
@@ -108,7 +127,7 @@
                             <input type="radio" name="rdoPergunta4" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-                <h4 class="enunciado">55555555</h4>
+            <h4 class="enunciado"><%=prof.getQuestionario() %></h4>
            
                     <div class="form-group">
 
@@ -128,7 +147,7 @@
                             <input type="radio" name="rdoPergunta5" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-                 <h4 class="enunciado">66666666</h4>
+            <h4 class="enunciado"><%=prof.getQuestionario() %></h4>
            
                     <div class="form-group">
 
@@ -148,7 +167,7 @@
                             <input type="radio" name="rdoPergunta6" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-                  <h4 class="enunciado">77777777</h4>
+            <h4 class="enunciado"><%=prof.getQuestionario() %></h4>
            
                     <div class="form-group">
 
@@ -168,7 +187,7 @@
                             <input type="radio" name="rdoPergunta7" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-                   <h4 class="enunciado">88888</h4>
+            <h4 class="enunciado"><%=prof.getQuestionario() %></h4>
            
                     <div class="form-group">
 
@@ -188,7 +207,7 @@
                             <input type="radio" name="rdoPergunta8" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-                    <h4 class="enunciado">99999999</h4>
+            <h4 class="enunciado"><%=prof.getQuestionario() %></h4>
            
                     <div class="form-group">
 
@@ -208,7 +227,7 @@
                             <input type="radio" name="rdoPergunta9" id="optionsRadiosInline5" value="resposta5">Excelente
                         </label>
                     </div>
-                     <h4 class="enunciado">1000000000</h4>
+            <h4 class="enunciado"><%=prof.getQuestionario() %></h4>
            
                     <div class="form-group">
 
