@@ -1,20 +1,29 @@
 
 
+<%@page import="dao.QuestionarioDAO"%>
+<%@page import="modelo.Questionario"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.MonitorDAO"%>
 <%@page import="modelo.MoniAval"%>
 <%@page import="modelo.Monitor"%>
 <%@include file="cabecalho.jsp"%>
 <%
+  
     Monitor monitor;
+    Monitor profe = new Monitor();
     
-   MonitorDAO monit = new MonitorDAO();
-   
-List <Monitor> lista;
+    MonitorDAO profDAO = new MonitorDAO();
+    
+   List<Monitor> mList = profDAO.listar();
+    
 
-
-MoniAval moni = new MoniAval();
-
+Questionario q;
+    
+QuestionarioDAO qdao = new QuestionarioDAO();
+  
+    List <Questionario> qList = qdao.listar();
+    
+q = qList.get(0);
 
 
 
@@ -40,212 +49,215 @@ MoniAval moni = new MoniAval();
                 <form action="index.jsp" method="post">
                     <div class="form-group">
                         <label>Selecione os monitores</label>
-                        <select class="form-control">
-                            <option><%=moni.getMonitor() %></option>
-                            <option><%=moni.getMonitor() %></option>
-                            <option><%=moni.getMonitor() %></option>
-                            <option><%=moni.getMonitor() %></option>
-                            <option><%=moni.getMonitor() %></option>
+                       <select class="form-control" id="selcurso" name="selcurso" value="<%=profe.getIdMonitor() %>">
+                              <%                            
+                    for (Monitor m : mList) {
+                %>
+                            <option><%=m.getIdMonitor() %></option>
+                            <option><%=m.getIdMonitor() %></option>
+                            <option><%=m.getIdMonitor() %></option>
+                            <option><%=m.getIdMonitor() %></option>
+                            <option><%=m.getIdMonitor() %></option>
                         </select>
-                    </div>
-            <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
+                         <%
+                    }
+                %>
+            <h4 class="enunciado"><%=q.getPergunta1() %></h4>
            
-                    <div class="form-group">
+                      <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="resposta1" checked><%=moni.getMaResposta1() %>Ruim
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="resposta2"><%=moni.getMaResposta1() %>Mais ou menos
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="resposta3"><%=moni.getMaResposta1() %>Bom
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="resposta4"><%=moni.getMaResposta1() %>ótimo
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="resposta5"><%=moni.getMaResposta1() %>Excelente
-                        </label>
-                    </div>
-             <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
-           
-                    <div class="form-group">
-
-                        <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta2" id="optionsRadiosInline1" value="resposta1" checked><%=moni.getMaResposta2() %>Ruim
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta2" id="optionsRadiosInline2" value="resposta2"><%=moni.getMaResposta2() %>Mais ou menos
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta2" id="optionsRadiosInline3" value="resposta3"><%=moni.getMaResposta2() %>Bom
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta2" id="optionsRadiosInline4" value="resposta4"><%=moni.getMaResposta2() %>ótimo
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta2" id="optionsRadiosInline5" value="resposta5"><%=moni.getMaResposta2() %>Excelente
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-              <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
+             <h4 class="enunciado"><%=q.getPergunta2() %></h4>
            
-                    <div class="form-group">
+                      <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta3" id="optionsRadiosInline1" value="resposta1" checked><%=moni.getMaResposta3() %>Ruim
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta3" id="optionsRadiosInline2" value="resposta2"><%=moni.getMaResposta3() %>Mais ou menos
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta3" id="optionsRadiosInline3" value="resposta3"><%=moni.getMaResposta3() %>Bom
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta3" id="optionsRadiosInline4" value="resposta4"><%=moni.getMaResposta3() %>ótimo
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta3" id="optionsRadiosInline5" value="resposta5"><%=moni.getMaResposta3() %>Excelente
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-            <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
+            <h4 class="enunciado"><%=q.getPergunta3() %></h4>
            
-                    <div class="form-group">
+                      <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta4" id="optionsRadiosInline1" value="resposta1" checked><%=moni.getMaResposta4() %>Ruim
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta4" id="optionsRadiosInline2" value="resposta2"><%=moni.getMaResposta4() %>Mais ou menos
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta4" id="optionsRadiosInline3" value="resposta3"><%=moni.getMaResposta4() %>Bom
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta4" id="optionsRadiosInline4" value="resposta4"><%=moni.getMaResposta4() %>ótimo
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta4" id="optionsRadiosInline5" value="resposta5"><%=moni.getMaResposta4() %>Excelente
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-               <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
+            <h4 class="enunciado"><%=q.getPergunta4() %></h4>
            
-                    <div class="form-group">
+                      <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta5" id="optionsRadiosInline1" value="resposta1" checked><%=moni.getMaResposta5() %>Ruim
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta5" id="optionsRadiosInline2" value="resposta2"><%=moni.getMaResposta5() %>Mais ou menos
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta5" id="optionsRadiosInline3" value="resposta3"><%=moni.getMaResposta5() %>Bom
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta5" id="optionsRadiosInline4" value="resposta4"><%=moni.getMaResposta5() %>ótimo
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta5" id="optionsRadiosInline5" value="resposta5"><%=moni.getMaResposta5() %>Excelente
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-                <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
+            <h4 class="enunciado"><%=q.getPergunta5() %></h4>
            
-                    <div class="form-group">
+                      <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta6" id="optionsRadiosInline1" value="resposta1" checked><%=moni.getMaResposta6() %>Ruim
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta6" id="optionsRadiosInline2" value="resposta2"><%=moni.getMaResposta6() %>Mais ou menos
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta6" id="optionsRadiosInline3" value="resposta3"><%=moni.getMaResposta6() %>Bom
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta6" id="optionsRadiosInline4" value="resposta4"><%=moni.getMaResposta6() %>ótimo
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta6" id="optionsRadiosInline5" value="resposta5"><%=moni.getMaResposta6() %>Excelente
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-                  <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
-           
-                    <div class="form-group">
+            <h4 class="enunciado"><%=q.getPergunta6() %></h4>
+             <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta7" id="optionsRadiosInline1" value="resposta1" checked><%=moni.getMaResposta7() %>Ruim
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta7" id="optionsRadiosInline2" value="resposta2"><%=moni.getMaResposta7() %>Mais ou menos
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta7" id="optionsRadiosInline3" value="resposta3"><%=moni.getMaResposta7() %>Bom
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta7" id="optionsRadiosInline4" value="resposta4"><%=moni.getMaResposta7() %>ótimo
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta7" id="optionsRadiosInline5" value="resposta5"><%=moni.getMaResposta7() %>Excelente
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-                 <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
-           
-                    <div class="form-group">
+            <h4 class="enunciado"><%=q.getPergunta7() %></h4>
+             <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta8" id="optionsRadiosInline1" value="resposta1" checked><%=moni.getMaResposta8() %>Ruim
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta8" id="optionsRadiosInline2" value="resposta2"><%=moni.getMaResposta8() %>Mais ou menos
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta8" id="optionsRadiosInline3" value="resposta3"><%=moni.getMaResposta8() %>Bom
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta8" id="optionsRadiosInline4" value="resposta4"><%=moni.getMaResposta8() %>ótimo
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta8" id="optionsRadiosInline5" value="resposta5"><%=moni.getMaResposta8() %>Excelente
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-                    <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
+            <h4 class="enunciado"><%=q.getPergunta8() %></h4>
            
-                    <div class="form-group">
+                      <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta9" id="optionsRadiosInline1" value="resposta1" checked><%=moni.getMaResposta9() %>Ruim
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta9" id="optionsRadiosInline2" value="resposta2"><%=moni.getMaResposta9() %>Mais ou menos
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta9" id="optionsRadiosInline3" value="resposta3"><%=moni.getMaResposta9() %>Bom
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta9" id="optionsRadiosInline4" value="resposta4"><%=moni.getMaResposta9() %>ótimo
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta9" id="optionsRadiosInline5" value="resposta5"><%=moni.getMaResposta9() %>Excelente
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-                    <h4 class="enunciado"><%=moni.getQuestionario()%></h4>
+            <h4 class="enunciado"><%=q.getPergunta9() %></h4>
            
-                    <div class="form-group">
+                      <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta10" id="optionsRadiosInline1" value="resposta1" checked><%=moni.getMaResposta10() %>Ruim
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta10" id="optionsRadiosInline2" value="resposta2"><%=moni.getMaResposta10() %>Mais ou menos
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta10" id="optionsRadiosInline3" value="resposta3"><%=moni.getMaResposta10() %>Bom
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta10" id="optionsRadiosInline4" value="resposta4"><%=moni.getMaResposta10() %>ótimo
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta10" id="optionsRadiosInline5" value="resposta5"><%=moni.getMaResposta10() %>Excelente
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
+                        </label>
+                    </div>
+            <h4 class="enunciado"><%=q.getPergunta10() %></h4>
+           
+                      <div class="form-group">
+
+                        <label class="radio-inline">
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
                     <br/>
