@@ -43,7 +43,7 @@ q = qList.get(0);
                 <form action="professorQuestionario-ok.jsp" method="post">
                     <div class="form-group">
                         <label>Selecione os professores</label>
-                        <select class="form-control" id="selcurso" name="selcurso" value="<%=profe.getIdProfessor() %>">
+                        <select class="form-control">
                               <%                            
                     for (Professor p : pList) {
                 %>
@@ -102,7 +102,7 @@ q = qList.get(0);
                     <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta3" id="optionsRadiosInline1" value="1" checked><Ruim
+                            <input type="radio" name="rdoPergunta3" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="rdoPergunta3" id="optionsRadiosInline2" value="2">Mais ou menos
@@ -144,7 +144,7 @@ q = qList.get(0);
                         <label class="radio-inline">
                             <input type="radio" name="rdoPergunta5" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
-                        <label class="radio-inline">
+                        <label class=" radio-inline">
                             <input type="radio" name="rdoPergunta5" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">

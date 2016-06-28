@@ -46,7 +46,7 @@ q = qList.get(0);
     <body>
         <div class="pergunta">
  <div class="opcoes">
-                <form action="index.jsp" method="post">
+                <form action="monitorQuestionario-ok.jsp" method="post">
                     <div class="form-group">
                         <label>Selecione os monitores</label>
                        <select class="form-control" id="selcurso" name="selcurso" value="<%=profe.getIdMonitor() %>">
