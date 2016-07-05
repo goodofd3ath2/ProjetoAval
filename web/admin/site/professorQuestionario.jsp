@@ -13,7 +13,7 @@
     
    List<Professor> pList = profDAO.listar();
     
-
+   ProfAval pAv = new ProfAval();
 Questionario q;
     
 QuestionarioDAO qdao = new QuestionarioDAO();
@@ -43,20 +43,33 @@ q = qList.get(0);
                 <form action="professorQuestionario-ok.jsp" method="post">
                     <div class="form-group">
                         <label>Selecione os professores</label>
-                        <select class="form-control">
+                        <select class="form-control" id="idProfessor" name="idProfessor" value="<%=profe.getIdProfessor() %>">
                               <%                            
                     for (Professor p : pList) {
                 %>
                             <option><%=p.getIdProfessor() %></option>
-                            <option><%=p.getIdProfessor() %></option>
-                            <option><%=p.getIdProfessor() %></option>
-                            <option><%=p.getIdProfessor() %></option>
-                            <option><%=p.getIdProfessor() %></option>
+                         
                         </select>
                          <%
                     }
                 %>
                     </div>
+                    <div class="form-group">
+                        <label> Selecione o questionario </label>
+                        <select class="form-control" id="idQuestionario" name="idQuestionario" value="<%=q.getIdQuestionario() %>">
+                            <% 
+                                for (Questionario qu : qList) {
+                                %>
+                                <option><%=q.getIdQuestionario() %></option>
+                                <% }
+                                    %>
+                        </select>
+                        <div class="mdl-cell--12-col"> 
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" required  name="maPeriodo" id="maPeriodo" value="<%=pAv.getPaPeriodo() %>" />
+                        <label class="mdl-textfield__label" for="txtPeriodoPA">Período de Avaliação</label>
+                    </div>
+                </div>
             <h4 class="enunciado"><%=q.getPergunta1() %></h4>
            
                     <div class="form-group">

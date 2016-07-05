@@ -5,12 +5,12 @@ import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import dao.QuestionarioDAO;
 import modelo.Questionario;
+import modelo.ProfAval;
 import java.util.List;
-import dao.MonitorDAO;
-import modelo.MoniAval;
-import modelo.Monitor;
+import dao.ProfessorDAO;
+import modelo.Professor;
 
-public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class professorQuestionario_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -42,7 +42,7 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html");
+      response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -53,8 +53,6 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\r\n");
-      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -164,13 +162,12 @@ public final class monitorQuestionario_jsp extends org.apache.jasper.runtime.Htt
       out.write('\r');
       out.write('\n');
 
-  
+    Professor professor;
+    Professor profe = new Professor();
     
-    Monitor monit = new Monitor();
+    ProfessorDAO profDAO = new ProfessorDAO();
     
-    MonitorDAO monitDAO = new MonitorDAO();
-    
-   List<Monitor> mList = monitDAO.listar();
+   List<Professor> pList = profDAO.listar();
     
 
 Questionario q;
@@ -184,69 +181,47 @@ q = qList.get(0);
 
 
 
-
-
-
-
     
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>Avaliação monitores</title>\r\n");
+      out.write("        <title>Avaliação professores</title>\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"css/estilo.css\"/>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
       out.write("        <div class=\"pergunta\">\r\n");
       out.write(" <div class=\"opcoes\">\r\n");
-      out.write("                <form action=\"monitorQuestionario-ok.jsp\" method=\"post\">\r\n");
-      out.write("                    <input type=\"hidden\" name=\"idQuestionario\" value=\"");
-      out.print(q.getIdQuestionario() );
-      out.write("\">\r\n");
+      out.write("                <form action=\"professorQuestionario-ok.jsp\" method=\"post\">\r\n");
       out.write("                    <div class=\"form-group\">\r\n");
-      out.write("                        <label>Selecione os monitores</label>\r\n");
-      out.write("                       <select class=\"form-control\" id=\"selMonitor\" name=\"idMonitor\" value=\"");
-      out.print(monit.getIdMonitor() );
-      out.write("\" >\r\n");
-      out.write("                           \r\n");
+      out.write("                        <label>Selecione os professores</label>\r\n");
+      out.write("                        <select class=\"form-control\" id=\"selProfessor\" name=\"selProfessor\" value=\"");
+      out.print(profe.getIdProfessor() );
+      out.write("\">\r\n");
       out.write("                              ");
                             
-                    for (Monitor m : mList) {
+                    for (Professor p : pList) {
                 
       out.write("\r\n");
-      out.write("                            <option value=\"");
-      out.print(m.getIdMonitor() );
-      out.write('"');
-      out.write('>');
-      out.print(m.getMonNome() );
+      out.write("                            <option>");
+      out.print(p.getIdProfessor() );
       out.write("</option>\r\n");
-      out.write("                            <option value=\"");
-      out.print(m.getIdMonitor() );
-      out.write('"');
-      out.write('>');
-      out.print(m.getMonNome() );
+      out.write("                            <option>");
+      out.print(p.getIdProfessor() );
       out.write("</option>\r\n");
-      out.write("                            <option value=\"");
-      out.print(m.getIdMonitor() );
-      out.write('"');
-      out.write('>');
-      out.print(m.getMonNome() );
+      out.write("                            <option>");
+      out.print(p.getIdProfessor() );
       out.write("</option>\r\n");
-      out.write("                            <option value=\"");
-      out.print(m.getIdMonitor() );
-      out.write('"');
-      out.write('>');
-      out.print(m.getMonNome() );
+      out.write("                            <option>");
+      out.print(p.getIdProfessor() );
       out.write("</option>\r\n");
-      out.write("                            <option value=\"");
-      out.print(m.getIdMonitor() );
-      out.write('"');
-      out.write('>');
-      out.print(m.getMonNome() );
+      out.write("                            <option>");
+      out.print(p.getIdProfessor() );
       out.write("</option>\r\n");
       out.write("                        </select>\r\n");
       out.write("                         ");
@@ -254,7 +229,8 @@ q = qList.get(0);
                     }
                 
       out.write("\r\n");
-      out.write("              <h4 class=\"enunciado\">");
+      out.write("                    </div>\r\n");
+      out.write("            <h4 class=\"enunciado\">");
       out.print(q.getPergunta1() );
       out.write("</h4>\r\n");
       out.write("           \r\n");
@@ -509,8 +485,9 @@ q = qList.get(0);
       out.write("</body>\r\n");
       out.write("\r\n");
       out.write("</html>\r\n");
-      out.write('\r');
-      out.write('\n');
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("        \r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

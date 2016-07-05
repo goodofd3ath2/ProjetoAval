@@ -50,16 +50,13 @@ q = qList.get(0);
                     <input type="hidden" name="idQuestionario" value="<%=q.getIdQuestionario() %>">
                     <div class="form-group">
                         <label>Selecione os monitores</label>
-                       <select class="form-control" name="idMonitor"  >
+                       <select class="form-control" id="selMonitor" name="idMonitor" value="<%=monit.getIdMonitor() %>" >
                            
                               <%                            
                     for (Monitor m : mList) {
                 %>
                             <option value="<%=m.getIdMonitor() %>"><%=m.getMonNome() %></option>
-                            <option value="<%=m.getIdMonitor() %>"><%=m.getMonNome() %></option>
-                            <option value="<%=m.getIdMonitor() %>"><%=m.getMonNome() %></option>
-                            <option value="<%=m.getIdMonitor() %>"><%=m.getMonNome() %></option>
-                            <option value="<%=m.getIdMonitor() %>"><%=m.getMonNome() %></option>
+                            
                         </select>
                          <%
                     }
