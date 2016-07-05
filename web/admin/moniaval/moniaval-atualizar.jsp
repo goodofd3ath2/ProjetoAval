@@ -46,12 +46,12 @@
 
                 <div class="mdl-cell--12-col">
                     <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                        <select class="mdl-select__input" id="selMonitor" name="selMonitor" value="<%=obj.getIdMonitor()%>">
+                        <select class="mdl-select__input" id="selMonitor" name="selMonitor" value="<%=obj.getMonitor()%>">
                             <option value="">Selecione a resposta</option>
                             <%
                                 String selected = "";
                                 for (Monitor item : mlista) {
-                                    if (item.getIdMonitor()== obj.getIdMonitor().getIdMonitor()) {
+                                    if (item.getIdMonitor()== obj.getMonitor().getIdMonitor()) {
                                         selected = "selected";
                                     }
                             %>
@@ -66,12 +66,12 @@
 
                 <div class="mdl-cell--12-col">
                     <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                        <select class="mdl-select__input" id="selQuestionario" name="selQuestionario" value="<%=obj.getIdQuestionario()%>">
+                        <select class="mdl-select__input" id="selQuestionario" name="selQuestionario" value="<%=obj.getQuestionario()%>">
                             <option value="">Selecione a resposta</option>
                             <%
                                 String selecte = "";
                                 for (Questionario item : qlista) {
-                                    if (item.getIdQuestionario() == obj.getIdQuestionario().getIdQuestionario()) {
+                                    if (item.getIdQuestionario() == obj.getQuestionario().getIdQuestionario()) {
                                         selecte = "selecte";
                                     }
                             %>

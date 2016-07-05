@@ -6,26 +6,24 @@
 <%@page import="modelo.Professor"%>
 <%@include file="cabecalho.jsp"%>
 <%
-    Professor professor;
+    
     Professor profe = new Professor();
-    
+
     ProfessorDAO profDAO = new ProfessorDAO();
-    
-   List<Professor> pList = profDAO.listar();
-    
-   ProfAval pAv = new ProfAval();
-Questionario q;
-    
-QuestionarioDAO qdao = new QuestionarioDAO();
-  
-    List <Questionario> qList = qdao.listar();
-    
-q = qList.get(0);
+
+    List<Professor> pList = profDAO.listar();
+
+    ProfAval pAv = new ProfAval();
+    Questionario q;
+
+    QuestionarioDAO qdao = new QuestionarioDAO();
+
+    List<Questionario> qList = qdao.listar();
+
+    q = qList.get(1);
 
 
-
-
-    %>
+%>
 
 
 
@@ -39,39 +37,33 @@ q = qList.get(0);
     </head>
     <body>
         <div class="pergunta">
- <div class="opcoes">
+            <div class="opcoes">
                 <form action="professorQuestionario-ok.jsp" method="post">
                     <div class="form-group">
                         <label>Selecione os professores</label>
-                        <select class="form-control" id="idProfessor" name="idProfessor" value="<%=profe.getIdProfessor() %>">
-                              <%                            
-                    for (Professor p : pList) {
-                %>
-                            <option><%=p.getIdProfessor() %></option>
-                         
+                        <select class="form-control" id="idProfessor" name="idProfessor" value="<%=profe.getIdProfessor()%>">
+                            <option value="">Selecione..</option>
+                            <%
+                                for (Professor p : pList) {
+                            %>
+                            <option value="<%=p.getIdProfessor()%>"><%=p%></option>
+                        <%
+                            }
+                        %>
                         </select>
-                         <%
-                    }
-                %>
+                        
                     </div>
-                    <div class="form-group">
-                        <label> Selecione o questionario </label>
-                        <select class="form-control" id="idQuestionario" name="idQuestionario" value="<%=q.getIdQuestionario() %>">
-                            <% 
-                                for (Questionario qu : qList) {
-                                %>
-                                <option><%=q.getIdQuestionario() %></option>
-                                <% }
-                                    %>
-                        </select>
-                        <div class="mdl-cell--12-col"> 
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  name="maPeriodo" id="maPeriodo" value="<%=pAv.getPaPeriodo() %>" />
-                        <label class="mdl-textfield__label" for="txtPeriodoPA">Período de Avaliação</label>
+                    
+                  
+                        
+                    <div class="mdl-cell--12-col"> 
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" required  name="maPeriodo" id="maPeriodo" value="<%=pAv.getPaPeriodo()%>" />
+                            <label class="mdl-textfield__label" for="txtPeriodoPA">Período de Avaliação</label>
+                        </div>
                     </div>
-                </div>
-            <h4 class="enunciado"><%=q.getPergunta1() %></h4>
-           
+                    <h4 class="enunciado"><%=q.getPergunta1()%></h4>
+
                     <div class="form-group">
 
                         <label class="radio-inline">
@@ -90,8 +82,8 @@ q = qList.get(0);
                             <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-            <h4 class="enunciado"><%=q.getPergunta2() %></h4>
-           
+                    <h4 class="enunciado"><%=q.getPergunta2()%></h4>
+
                     <div class="form-group">
 
                         <label class="radio-inline">
@@ -110,8 +102,8 @@ q = qList.get(0);
                             <input type="radio" name="rdoPergunta2" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-            <h4 class="enunciado"><%=q.getPergunta3() %></h4>
-           
+                    <h4 class="enunciado"><%=q.getPergunta3()%></h4>
+
                     <div class="form-group">
 
                         <label class="radio-inline">
@@ -130,8 +122,8 @@ q = qList.get(0);
                             <input type="radio" name="rdoPergunta3" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-            <h4 class="enunciado"><%=q.getPergunta4() %></h4>
-           
+                    <h4 class="enunciado"><%=q.getPergunta4()%></h4>
+
                     <div class="form-group">
 
                         <label class="radio-inline">
@@ -150,8 +142,8 @@ q = qList.get(0);
                             <input type="radio" name="rdoPergunta4" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-            <h4 class="enunciado"><%=q.getPergunta5() %></h4>
-           
+                    <h4 class="enunciado"><%=q.getPergunta5()%></h4>
+
                     <div class="form-group">
 
                         <label class="radio-inline">
@@ -170,8 +162,8 @@ q = qList.get(0);
                             <input type="radio" name="rdoPergunta5" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-            <h4 class="enunciado"><%=q.getPergunta6() %></h4>
-           
+                    <h4 class="enunciado"><%=q.getPergunta6()%></h4>
+
                     <div class="form-group">
 
                         <label class="radio-inline">
@@ -190,8 +182,8 @@ q = qList.get(0);
                             <input type="radio" name="rdoPergunta6" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-            <h4 class="enunciado"><%=q.getPergunta7() %></h4>
-           
+                    <h4 class="enunciado"><%=q.getPergunta7()%></h4>
+
                     <div class="form-group">
 
                         <label class="radio-inline">
@@ -210,8 +202,8 @@ q = qList.get(0);
                             <input type="radio" name="rdoPergunta7" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-            <h4 class="enunciado"><%=q.getPergunta8() %></h4>
-           
+                    <h4 class="enunciado"><%=q.getPergunta8()%></h4>
+
                     <div class="form-group">
 
                         <label class="radio-inline">
@@ -230,8 +222,8 @@ q = qList.get(0);
                             <input type="radio" name="rdoPergunta8" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-            <h4 class="enunciado"><%=q.getPergunta9() %></h4>
-           
+                    <h4 class="enunciado"><%=q.getPergunta9()%></h4>
+
                     <div class="form-group">
 
                         <label class="radio-inline">
@@ -250,8 +242,8 @@ q = qList.get(0);
                             <input type="radio" name="rdoPergunta9" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-            <h4 class="enunciado"><%=q.getPergunta10() %></h4>
-           
+                    <h4 class="enunciado"><%=q.getPergunta10()%></h4>
+
                     <div class="form-group">
 
                         <label class="radio-inline">
@@ -273,19 +265,18 @@ q = qList.get(0);
                     <br/>
                     <hr/>
                     <input type="submit" value="confirmar" name="btnConfirmar"  /> 
-
-
-                </form>
+              
+                
             </div>
-        </div>
+        
         <div class="painelUsuario">
 
             <br />
-
+        
         </div>
-
+        
     </body>
 
     <%@include file="rodape.jsp"%>
 
-        
+

@@ -1,4 +1,5 @@
-
+<%@page import="java.util.List"%>
+<%@page import="dao.QuestionarioDAO"%>
 <%@page import="modelo.MoniAval"%>
 <%@page import="dao.MoniAvalDAO"%>
 <%@page import="modelo.Monitor"%>
@@ -6,6 +7,16 @@
 <%@page import="java.math.BigInteger"%>
 <%@include file="cabecalho.jsp"%>
 <%
+    String msg = "";
+    if (request.getParameter("rdopergunta1") != null
+            && request.getParameter("rdopergunta1") != null || request.getParameter("rdopergunta1") != null
+            || request.getParameter("rdopergunta1") != null
+            || request.getParameter("rdopergunta1") != null || request.getParameter("rdopergunta1") != null
+            || request.getParameter("rdopergunta1") != null || request.getParameter("rdopergunta1") != null
+            || request.getParameter("rdopergunta1") != null || request.getParameter("rdopergunta1") != null) {
+        response.sendRedirect("index.jsp");
+    } else {
+        msg = "Confirmou";
     BigInteger rdoPergunta = new BigInteger(request.getParameter("rdoPergunta"));
     BigInteger rdoPergunta2 = new BigInteger(request.getParameter("rdoPergunta2"));
     BigInteger rdoPergunta3 = new BigInteger(request.getParameter("rdoPergunta3"));
@@ -17,11 +28,13 @@
     BigInteger rdoPergunta9 = new BigInteger(request.getParameter("rdoPergunta9"));
     BigInteger rdoPergunta10 = new BigInteger(request.getParameter("rdoPergunta10"));
     String maPeriodo = request.getParameter("maPeriodo");
-    Long idQuestionario =  Long.parseLong(request.getParameter("idQuestionario"));
+    
     Long idMonitor = Long.parseLong(request.getParameter("idMonitor"));
     
+        QuestionarioDAO qdao = new QuestionarioDAO();
         Questionario objQues = new Questionario();
-        
+        List<Questionario> qList = qdao.listar();
+        Questionario q = qList.get(0);
         
 
         Monitor objMon = new Monitor();
@@ -40,13 +53,18 @@
         obj.setMaResposta8(rdoPergunta8);
         obj.setMaResposta9(rdoPergunta9);
         obj.setMaResposta10(rdoPergunta10);
-        obj.setMaPeriodo(maPeriodo);
+        obj.setMaPeriodo(maPeriodo); //
         objMon.setIdMonitor(idMonitor);
-        obj.setMonitor(objMon);
-        objQues.setIdQuestionario(idQuestionario);
-        obj.setQuestionario(objQues);
+        obj.setIdMonitor(objMon);
+        obj.setIdQuestionario(q);//
+        
         
         dao.incluir(obj);
-        
+    }
 %>
+
+<img style="-webkit-user-select: none" src="https://turistasliterarias.files.wordpress.com/2015/01/tumblr_lzi67rgsbp1qb82v1o2_250.gif?w=506&amp;h=454">
+<h4>Concluido!</h4>
+
+<button  id="salvar" value="acao" name="acao" class="btn btn-primary"  onclick="location.href='index.jsp'">index</button>
 <%@include file="rodape.jsp"%>

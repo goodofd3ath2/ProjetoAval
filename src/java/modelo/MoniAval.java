@@ -7,10 +7,11 @@ package modelo;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -26,11 +27,11 @@ import javax.persistence.Table;
 @Table(name = "moni_aval")
 @NamedQueries({
     @NamedQuery(name = "MoniAval.findAll", query = "SELECT m FROM MoniAval m")})
-    @NamedQuery(name = "MoniAval.findById", query = "SELECT m FROM MoniAval m where m.idMoniaval like :idMoniaval")
 public class MoniAval implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_moniaval")
     private Long idMoniaval;
@@ -96,8 +97,6 @@ public class MoniAval implements Serializable {
         this.maResposta10 = maResposta10;
     }
 
-    
-   
     public Long getIdMoniaval() {
         return idMoniaval;
     }
@@ -194,19 +193,19 @@ public class MoniAval implements Serializable {
         this.maResposta10 = maResposta10;
     }
 
-    public Monitor getMonitor() {
+    public Monitor getIdMonitor() {
         return idMonitor;
     }
 
-    public void setMonitor(Monitor idMonitor) {
+    public void setIdMonitor(Monitor idMonitor) {
         this.idMonitor = idMonitor;
     }
 
-    public Questionario getQuestionario() {
+    public Questionario getIdQuestionario() {
         return idQuestionario;
     }
 
-    public void setQuestionario(Questionario idQuestionario) {
+    public void setIdQuestionario(Questionario idQuestionario) {
         this.idQuestionario = idQuestionario;
     }
 
@@ -232,8 +231,7 @@ public class MoniAval implements Serializable {
 
     @Override
     public String toString() {
-         return idMoniaval + "-" + maPeriodo;
+        return "modelo.MoniAval[ idMoniaval=" + idMoniaval + " ]";
     }
-    
     
 }

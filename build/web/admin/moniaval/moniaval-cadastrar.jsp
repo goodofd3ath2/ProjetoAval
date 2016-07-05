@@ -35,7 +35,7 @@
 
                 <div class="mdl-cell--12-col">
                     <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                        <select class="mdl-select__input" id="selMonitor" name="selMonitor" value="<%=obj.getIdMonitor()%>">
+                        <select class="mdl-select__input" id="selMonitor" name="selMonitor" value="<%=obj.getMonitor()%>">
                             <option value="">Selecione</option>
                 <%
                 //percorrer minha lista de profs
@@ -51,7 +51,7 @@
 
                 <div class="mdl-cell--12-col">
                     <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                        <select class="mdl-select__input" id="selQuestionario" name="selQuestionario" value="<%=obj.getIdQuestionario()%>">
+                        <select class="mdl-select__input" id="selQuestionario" name="selQuestionario" value="<%=obj.getQuestionario()%>">
                             <option value="">Selecione</option>
                 <%
                 //percorrer minha lista de profs

@@ -49,8 +49,8 @@
                 <tbody>
                     <tr>
                         <td><%=obj.getIdMoniaval()%></td>
-                        <td><%=obj.getIdMonitor()%></td>
-                        <td><%=obj.getIdQuestionario()%></td>
+                        <td><%=obj.getMonitor()%></td>
+                        <td><%=obj.getQuestionario()%></td>
                         <td>
                             <!-- 
                                 Atualizar 

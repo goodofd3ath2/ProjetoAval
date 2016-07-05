@@ -30,14 +30,14 @@
         BigInteger v_resposta9 = new BigInteger(request.getParameter("rdoPergunta9"));
         BigInteger v_resposta10 = new BigInteger(request.getParameter("rdoPergunta10"));
         String maPeriodo = request.getParameter("maPeriodo");
-        Long idQuestionario =  Long.parseLong(request.getParameter("idQuestionario"));
+   
         Long idProfessor = Long.parseLong(request.getParameter("idProfessor"));
 
         //Chamar a inclusão da DAO
         QuestionarioDAO qdao = new QuestionarioDAO();
         Questionario objQues = new Questionario();
         List<Questionario> qList = qdao.listar();
-        Questionario q = qList.get(0);
+        Questionario q = qList.get(1);
 
         ProfAval pa = new ProfAval();
         ProfAvalDAO paDAO = new ProfAvalDAO();
@@ -55,16 +55,17 @@
         pa.setPaResposta9(v_resposta9);
         pa.setPaResposta10(v_resposta10);
         objProf.setIdProfessor(idProfessor);
-        pa.setProfessor(objProf);
+        pa.setIdProfessor(objProf);
         pa.setPaPeriodo(maPeriodo);
-        objQues.setIdQuestionario(idQuestionario);
+        pa.setIdQuestionario(q);
 
         paDAO.incluir(pa);
     }
 %>
 
 
-
+<img style="-webkit-user-select: none" src="http://3.bp.blogspot.com/-8LogxatfG6g/UAMJFw0MaZI/AAAAAAAABZ4/9mOwtJsPJkw/s1600/gato+que+dan%C3%A7a.gif">
 <h4>Pronto</h4>
+<button  id="salvar" value="acao" name="acao" class="btn btn-primary"  onclick="location.href='index.jsp'">index</button>
 
 <%@include file="rodape.jsp"%>

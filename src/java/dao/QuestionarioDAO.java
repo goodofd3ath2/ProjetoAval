@@ -33,7 +33,7 @@ public class QuestionarioDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            em.close();
+           // em.close();
             
         }
         

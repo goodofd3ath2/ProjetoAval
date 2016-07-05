@@ -25,7 +25,7 @@ public class MoniAvalDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            em.close();
+            //em.close();
             
         }
         

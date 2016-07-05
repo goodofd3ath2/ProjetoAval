@@ -6,9 +6,9 @@
 
 
 
-<button href="monitorQuestionario.jsp" type="button" class="btn btn-primary btn-lg btn-block">Questionario do Monitor</button>
+<button  id="salvar" value="acao" name="acao" class="btn btn-primary"  onclick="location.href='professorQuestionario.jsp'">Professor Questionario</button>
 
-<button href="professorQuestionario.jsp" type="button" class="btn btn-primary btn-lg btn-block">Questionario do Professor</button>
+<button  id="salvar" value="acao" name="acao" class="btn btn-primary"  onclick="location.href='monitorQuestionario.jsp'">Monitor questionario</button>
 
 <%@include file="rodape.jsp"%>
 

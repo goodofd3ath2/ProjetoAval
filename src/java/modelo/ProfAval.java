@@ -10,13 +10,14 @@ import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -24,13 +25,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "prof_aval")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "ProfAval.findAll", query = "SELECT p FROM ProfAval p")})
 public class ProfAval implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_profaval")
     private Long idProfaval;
@@ -192,20 +193,20 @@ public class ProfAval implements Serializable {
         this.paResposta10 = paResposta10;
     }
 
-    public Professor getProfessor() {
+    public Professor getIdProfessor() {
         return idProfessor;
     }
 
-    public void setProfessor(Professor professor) {
-        this.idProfessor = professor;
+    public void setIdProfessor(Professor idProfessor) {
+        this.idProfessor = idProfessor;
     }
 
-    public Questionario getQuestionario() {
+    public Questionario getIdQuestionario() {
         return idQuestionario;
     }
 
-    public void setIdQuestionario(Questionario questionario) {
-        this.idQuestionario = questionario;
+    public void setIdQuestionario(Questionario idQuestionario) {
+        this.idQuestionario = idQuestionario;
     }
 
     @Override
@@ -230,7 +231,7 @@ public class ProfAval implements Serializable {
 
     @Override
     public String toString() {
-        return idProfaval + "-" + paPeriodo;
+        return "modelo.ProfAval[ idProfaval=" + idProfaval + " ]";
     }
-
+    
 }
