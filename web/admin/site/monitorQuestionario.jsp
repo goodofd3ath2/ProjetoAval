@@ -9,12 +9,12 @@
 <%@include file="cabecalho.jsp"%>
 <%
   
-    Monitor monitor;
-    Monitor profe = new Monitor();
     
-    MonitorDAO profDAO = new MonitorDAO();
+    Monitor monit = new Monitor();
     
-   List<Monitor> mList = profDAO.listar();
+    MonitorDAO monitDAO = new MonitorDAO();
+    
+   List<Monitor> mList = monitDAO.listar();
     
 
 Questionario q;
@@ -47,24 +47,26 @@ q = qList.get(0);
         <div class="pergunta">
  <div class="opcoes">
                 <form action="monitorQuestionario-ok.jsp" method="post">
+                    <input type="hidden" name="idQuestionario" value="<%=q.getIdQuestionario() %>">
                     <div class="form-group">
                         <label>Selecione os monitores</label>
-                       <select class="form-control" id="selcurso" name="selcurso" value="<%=profe.getIdMonitor() %>">
+                       <select class="form-control" name="idMonitor"  >
+                           
                               <%                            
                     for (Monitor m : mList) {
                 %>
-                            <option><%=m.getIdMonitor() %></option>
-                            <option><%=m.getIdMonitor() %></option>
-                            <option><%=m.getIdMonitor() %></option>
-                            <option><%=m.getIdMonitor() %></option>
-                            <option><%=m.getIdMonitor() %></option>
+                            <option value="<%=m.getIdMonitor() %>"><%=m.getMonNome() %></option>
+                            <option value="<%=m.getIdMonitor() %>"><%=m.getMonNome() %></option>
+                            <option value="<%=m.getIdMonitor() %>"><%=m.getMonNome() %></option>
+                            <option value="<%=m.getIdMonitor() %>"><%=m.getMonNome() %></option>
+                            <option value="<%=m.getIdMonitor() %>"><%=m.getMonNome() %></option>
                         </select>
                          <%
                     }
                 %>
-            <h4 class="enunciado"><%=q.getPergunta1() %></h4>
+              <h4 class="enunciado"><%=q.getPergunta1() %></h4>
            
-                      <div class="form-group">
+                    <div class="form-group">
 
                         <label class="radio-inline">
                             <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
@@ -82,187 +84,189 @@ q = qList.get(0);
                             <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
-             <h4 class="enunciado"><%=q.getPergunta2() %></h4>
+            <h4 class="enunciado"><%=q.getPergunta2() %></h4>
            
-                      <div class="form-group">
+                    <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
+                            <input type="radio" name="rdoPergunta2" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
+                            <input type="radio" name="rdoPergunta2" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
+                            <input type="radio" name="rdoPergunta2" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
+                            <input type="radio" name="rdoPergunta2" id="optionsRadiosInline4" value="4">ótimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
+                            <input type="radio" name="rdoPergunta2" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
             <h4 class="enunciado"><%=q.getPergunta3() %></h4>
            
-                      <div class="form-group">
+                    <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
+                            <input type="radio" name="rdoPergunta3" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
+                            <input type="radio" name="rdoPergunta3" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
+                            <input type="radio" name="rdoPergunta3" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
+                            <input type="radio" name="rdoPergunta3" id="optionsRadiosInline4" value="4">ótimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
+                            <input type="radio" name="rdoPergunta3" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
             <h4 class="enunciado"><%=q.getPergunta4() %></h4>
            
-                      <div class="form-group">
+                    <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
+                            <input type="radio" name="rdoPergunta4" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
+                            <input type="radio" name="rdoPergunta4" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
+                            <input type="radio" name="rdoPergunta4" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
+                            <input type="radio" name="rdoPergunta4" id="optionsRadiosInline4" value="4">ótimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
+                            <input type="radio" name="rdoPergunta4" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
             <h4 class="enunciado"><%=q.getPergunta5() %></h4>
            
-                      <div class="form-group">
+                    <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
+                            <input type="radio" name="rdoPergunta5" id="optionsRadiosInline1" value="1" checked>Ruim
+                        </label>
+                        <label class=" radio-inline">
+                            <input type="radio" name="rdoPergunta5" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
+                            <input type="radio" name="rdoPergunta5" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
+                            <input type="radio" name="rdoPergunta5" id="optionsRadiosInline4" value="4">ótimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
+                            <input type="radio" name="rdoPergunta5" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
             <h4 class="enunciado"><%=q.getPergunta6() %></h4>
-             <div class="form-group">
+           
+                    <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
+                            <input type="radio" name="rdoPergunta6" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
+                            <input type="radio" name="rdoPergunta6" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
+                            <input type="radio" name="rdoPergunta6" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
+                            <input type="radio" name="rdoPergunta6" id="optionsRadiosInline4" value="4">ótimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
+                            <input type="radio" name="rdoPergunta6" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
             <h4 class="enunciado"><%=q.getPergunta7() %></h4>
-             <div class="form-group">
+           
+                    <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
+                            <input type="radio" name="rdoPergunta7" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
+                            <input type="radio" name="rdoPergunta7" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
+                            <input type="radio" name="rdoPergunta7" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
+                            <input type="radio" name="rdoPergunta7" id="optionsRadiosInline4" value="4">ótimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
+                            <input type="radio" name="rdoPergunta7" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
             <h4 class="enunciado"><%=q.getPergunta8() %></h4>
            
-                      <div class="form-group">
+                    <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
+                            <input type="radio" name="rdoPergunta8" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
+                            <input type="radio" name="rdoPergunta8" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
+                            <input type="radio" name="rdoPergunta8" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
+                            <input type="radio" name="rdoPergunta8" id="optionsRadiosInline4" value="4">ótimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
+                            <input type="radio" name="rdoPergunta8" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
             <h4 class="enunciado"><%=q.getPergunta9() %></h4>
            
-                      <div class="form-group">
+                    <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
+                            <input type="radio" name="rdoPergunta9" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
+                            <input type="radio" name="rdoPergunta9" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
+                            <input type="radio" name="rdoPergunta9" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
+                            <input type="radio" name="rdoPergunta9" id="optionsRadiosInline4" value="4">ótimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
+                            <input type="radio" name="rdoPergunta9" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
             <h4 class="enunciado"><%=q.getPergunta10() %></h4>
            
-                      <div class="form-group">
+                    <div class="form-group">
 
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline1" value="1" checked>Ruim
+                            <input type="radio" name="rdoPergunta10" id="optionsRadiosInline1" value="1" checked>Ruim
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline2" value="2">Mais ou menos
+                            <input type="radio" name="rdoPergunta10" id="optionsRadiosInline2" value="2">Mais ou menos
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline3" value="3">Bom
+                            <input type="radio" name="rdoPergunta10" id="optionsRadiosInline3" value="3">Bom
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline4" value="4">otimo
+                            <input type="radio" name="rdoPergunta10" id="optionsRadiosInline4" value="4">ótimo
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rdoPergunta" id="optionsRadiosInline5" value="5">Excelente
+                            <input type="radio" name="rdoPergunta10" id="optionsRadiosInline5" value="5">Excelente
                         </label>
                     </div>
                     <br/>
                     <hr/>
-                    <input type="submit" value="confirmar" name="btnConfirmar" />
+                    <input type="submit" value="confirmar" name="btnConfirmar"  /> 
 
 
                 </form>
