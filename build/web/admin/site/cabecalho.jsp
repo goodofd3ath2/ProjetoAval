@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,8 @@
         <meta name="author" content="">
 
         <title>SB Admin 2 - Bootstrap Admin Theme</title>
-
+        
+   
         <!-- Bootstrap Core CSS -->
         <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -43,6 +45,31 @@
                     <!-- /.dropdown-alerts -->
 
                     <!-- /.dropdown -->
+                     <li class="dropdown bottom-right">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a class="btn btn-block btn-social btn-facebook" href="https://www.facebook.com/">
+                                <i class="fa fa-facebook"></i> Sign in with Facebook
+                            </a>
+                        </li>
+                        <li><a class="btn btn-block btn-social btn-google-plus" href="https://www.google.com/intl/pt-BR/mail/help/about.html" bgcolor="#FF0000">
+                                <i class="fa fa-google-plus"></i> Sign in with Google
+                            </a>
+                        </li>
+                        <li><a class="btn btn-block btn-social btn-twitter" href="https://twitter.com/">
+                                <i class="fa fa-twitter"></i> Sign in with Twitter
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="sair"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+   
+        
 
                     <!-- /.navbar-top-links -->
 
@@ -61,26 +88,26 @@
                                     <!-- /input-group -->
                                 </li>
                                 <li>
-                                    <a href="index.jsp"><i class="fa fa-dashboard fa-fw"></i> Menu de inicio</a>
+                                    <a href="index.jsp"><i class="fa fa-dashboard fa-fw"></i> Menu de início</a>
                                 </li>
-
+                                
                                 <li>
                                     <a href="#"><i class="fa fa-sitemap fa-fw"></i>Clique aqui<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="professorIndex.jsp">Professores</a>
+                                            <a href="professorIndex.jsp">Média Professores</a>
                                         </li>
                                         <li>
-                                            <a href="monitorIndex.jsp">Monitores</a>
+                                            <a href="monitorIndex.jsp">Média Monitores</a>
                                         </li>
                                         <li>
                                             <a href="#">Clique aqui <span class="fa arrow"></span></a>
                                             <ul class="nav nav-third-level">
                                                 <li>
-                                                    <a href="professorQuestionario.jsp">Questionario professor</a>
+                                                    <a href="professorQuestionario.jsp">Questionário professor</a>
                                                 </li>
                                                 <li>
-                                                    <a href="monitorQuestionario.jsp">Questionario monitor</a>
+                                                    <a href="monitorQuestionario.jsp">Questionário monitor</a>
                                                 </li>
                                                 <li>
                                                     <a href="index.jsp">Index</a>
